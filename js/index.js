@@ -1,3 +1,26 @@
+let clave;
+
+let intentos = 0;
+const MAX_INTENTOS = 3;
+
+do {
+    clave = prompt('Ingresa la clave');
+    intentos ++;
+    
+    if(clave ==='entrega1'){
+        console.log("Contrasenia correcta");
+        break;
+    }
+
+    if(intentos >= MAX_INTENTOS){
+        console.log("Se alcanzo la cantidad maxima de intentos");
+        break;
+    }
+
+
+} while(true);
+
+
 
 let cantidad;
 let formaDePago;
