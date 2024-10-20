@@ -102,6 +102,8 @@ const PRODUCTOS_ARRAY = [
   }
 ];
 
+
+
 // Array vacio
 let carrito = [];
 

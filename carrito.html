@@ -32,7 +32,6 @@
           <ul class="d-flex list-unstyled">
             <li><a class="text-decoration-none text-white" href="./index.html">Home</a></li>
             <li><a class="text-decoration-none text-white" href="">Sobre Nosotros</a></li>
-            <li><a class="text-decoration-none text-white" href="#">Mi Carrito</a></li>
           </ul>
   
         </nav>
@@ -42,57 +41,58 @@
   
   
     <main class="flex-grow-1 mb-5">
-        <div class="wrapper">
+        <div class="wrapper-carrito">
             <aside>
               
               <nav>
                 <ul>
-                  <li>
-                    <a class="boton-menu boton-volver" href="./index.html">
-                      <i class="bi bi-arrow-90deg-left"></i><span>Add more items to the
-                        cart</span>
-                    </a>
-                  </li>
+                  
                   <li>
                     <a class="boton-menu boton-carrito active" href="./carrito.html">
                       <i class="bi bi-cart"></i> Carrito 
                     </a>
                   </li>
+
+                  <li>
+                    <a class="boton-menu boton-volver boton-carrito" href="./index.html">
+                      <i class="bi bi-arrow-90deg-left"></i><span>Add more items to the
+                        cart</span>
+                    </a>
+                  </li>
+
                 </ul>
               </nav>
 
             </aside>
-            <main class="main-carrito">
-              <h2 class="titulo-principal">Mi Carrito</h2>
-              <div class="contenedor-carrito">
-                <p id="carrito-vacio" class="carrito-vacio">
-                  Tu carrito esta vacio <i class="bi bi-emoji-frown"></i>
-                </p>
-                <div id="carrito-productos" class="carrito-productos disabled">
-                 <!-- Esto se completara con el JS -->
-                </div>
-      
-                <div id="carrito-acciones" class="carrito-acciones disabled">
-                  <div class="carrito-acciones-izquierda">
-                    <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar">Carrito Vacio</button>
+            <div class="main-carrito">
+                <h2 class="titulo-principal">Mi Carrito</h2>
+                <div class="contenedor-carrito">
+                  <p id="carrito-vacio" class="carrito-vacio">
+                    Tu carrito esta vacio <i class="bi bi-emoji-frown"></i>
+                  </p>
+                  <div id="carrito-productos" class="carrito-productos disabled">
+                   <!-- Esto se completara con el JS -->
                   </div>
-                  <div class="carrito-acciones-derecha"> 
-                    <div class="carrito-acciones-total">
-                    <p>Total: </p>
-                    <p id="total"> $20</p>
-                  </div> 
-                  <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Comprar</button></div>
-                 
+        
+                  <div id="carrito-acciones" class="carrito-acciones disabled">
+                    <div class="carrito-acciones-izquierda">
+                      <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar">Carrito Vacio</button>
+                    </div>
+                    <div class="carrito-acciones-derecha"> 
+                      <div class="carrito-acciones-total">
+                      <p>Total: </p>
+                      <p id="total"> $20</p>
+                    </div> 
+                    <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Comprar</button></div>
+                   
+                  </div>
+                  <p id="carrito-comprado" class="carrito-comprado disabled">
+                    Gracias por comprar! <i class="bi bi-emoji-laughing"></i>
+                  </p>
                 </div>
-                <p id="carrito-comprado" class="carrito-comprado disabled">
-                  Gracias por comprar! <i class="bi bi-emoji-laughing"></i>
-                </p>
               </div>
-            </main>
           </div>
-      
-    
-  
+        
     </main>
   
     <footer class="container-fluid text-center mt-auto">
