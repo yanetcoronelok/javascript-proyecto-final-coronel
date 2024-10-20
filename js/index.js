@@ -103,23 +103,20 @@ const PRODUCTOS_ARRAY = [
 ];
 
 
-
-// Array vacio
-let carrito = [];
-
 const CONTENEDOR_GALERIA_DE_PRODUCTOS = document.querySelector("#contenedor-galeria-de-productos");
-const BOTONES_CATEGORIAS = document.querySelectorAll(".boton-categoria");
+const BOTONES_DE_FILTRADO_DE_CATEGORIAS = document.querySelectorAll(".boton-categoria");
 const TITULO_PRINCIPAL = document.querySelector("#titulo-principal");
 let botonesAgregar = document.querySelectorAll(".producto-agregar");
 
 
 // Funcion para mostrar los productos en el html
-function mostrarProductos() {
 
+function mostrarProductos(productos = PRODUCTOS_ARRAY){
+  const PRODUCTOS_SECTION = document.getElementById("productos");
 
-  
-  const PRODUCTOS_SECTION = document.getElementById('productos');
-  PRODUCTOS_ARRAY.forEach(producto => {
+  PRODUCTOS_SECTION.innerHTML = "";
+
+  productos.forEach(producto => {
     const CARD_DIV = document.createElement('div');
     CARD_DIV.className = 'card-container';
     CARD_DIV.innerHTML = `
@@ -129,19 +126,41 @@ function mostrarProductos() {
             <h5 class="card-title">${producto.titulo}</h5>
             <p class="categoria">Categoria: ${producto.categoria.nombre}</p>
             <p class="precio">Precio: ${producto.precio}</p>
-            <button class="producto-agregar" id="${producto.id}" >Agregar al carrito</button>
+            <button class="producto-agregar" id="${producto.id}">Agregar al carrito</button>
           </div>
         </div>
-    `
+    `;
     PRODUCTOS_SECTION.appendChild(CARD_DIV);
   });
 }
-
 mostrarProductos();
 
 
 // Filtro segun categorias
 
+
+BOTONES_DE_FILTRADO_DE_CATEGORIAS.forEach(boton => {
+  boton.addEventListener("click", (e) => {
+
+    BOTONES_DE_FILTRADO_DE_CATEGORIAS.forEach(boton => boton.classList.remove("active"));
+    e.currentTarget.classList.add("active");
+
+    if (e.currentTarget.id != "todos") {
+  
+      const PRODUCTOS_FILTRADOS = PRODUCTOS_ARRAY.filter(producto => producto.categoria.id === e.currentTarget.id);
+
+      TITULO_PRINCIPAL.innerText = PRODUCTOS_FILTRADOS[0]?.categoria.nombre;
+
+            mostrarProductos(PRODUCTOS_FILTRADOS);
+    } else {
+      TITULO_PRINCIPAL.innerText = "Todas las fotografias";
+      mostrarProductos(PRODUCTOS_ARRAY);
+    }
+  
+  })
+});
+
+/* 
 BOTONES_CATEGORIAS.forEach(boton => {
   boton.addEventListener("click", (e) => {
 
@@ -162,11 +181,10 @@ BOTONES_CATEGORIAS.forEach(boton => {
     }
   
   })
-});
+}); */
 
 
 
-// Funcion para agregar los productos al carrito
 
 
 
