@@ -107,13 +107,22 @@ const PRODUCTOS_ARRAY = [
 // Array vacio
 let carrito = [];
 
+const CONTENEDOR_GALERIA_DE_PRODUCTOS = document.querySelector("#contenedor-galeria-de-productos");
+const BOTONES_CATEGORIAS = document.querySelectorAll(".boton-categoria");
+const TITULO_PRINCIPAL = document.querySelector("#titulo-principal");
+let botonesAgregar = document.querySelectorAll(".producto-agregar");
+
+
 // Funcion para mostrar los productos en el html
 function mostrarProductos() {
+
+
+  
   const PRODUCTOS_SECTION = document.getElementById('productos');
   PRODUCTOS_ARRAY.forEach(producto => {
     const CARD_DIV = document.createElement('div');
     CARD_DIV.className = 'card-container';
-    CARD_DIV.innerHTML=`
+    CARD_DIV.innerHTML = `
       <div class="card producto" style="width: 18rem;">
           <img src="${producto.imagen}" class="card-img-top" alt="${producto.titulo}">
           <div class="card-body">
@@ -129,6 +138,31 @@ function mostrarProductos() {
 }
 
 mostrarProductos();
+
+
+// Filtro segun categorias
+
+BOTONES_CATEGORIAS.forEach(boton => {
+  boton.addEventListener("click", (e) => {
+
+    BOTONES_CATEGORIAS.forEach(boton => boton.classList.remove("active"));
+    e.currentTarget.classList.add("active");
+
+    if (e.currentTarget.id != "todos") {
+      debugger
+      const CATEGORIA = PRODUCTOS_ARRAY.find(producto => producto.categoria.id === e.currentTarget.id);
+
+      TITULO_PRINCIPAL.innerText = CATEGORIA.categoria.nombre;
+
+      const PRODUCTOS_BOTON = PRODUCTOS.find(producto => producto.categoria.id === e.currentTarget.id);
+            mostrarProductos(PRODUCTOS_BOTON);
+    } else {
+      TITULO_PRINCIPAL.innerText = "Todas las fotografias";
+      mostrarProductos(PRODUCTOS_ARRAY);
+    }
+  
+  })
+});
 
 
 
