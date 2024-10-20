@@ -129,6 +129,7 @@ function mostrarProductos() {
 mostrarProductos();
 
 
+
 // Funcion para agregar los productos al carrito
 
 
