@@ -164,7 +164,7 @@ BOTONES_DE_FILTRADO_DE_CATEGORIAS.forEach(boton => {
 
 
 
-// Funcion para agregar productos al carrito
+// Funcion para actualizar los botones para agregar productos al carrito
 
 function actualizarBotonesParaAgregarProductosAlCarrito() {
   botonesParaAgregarProductosAlCarrito = document.querySelectorAll(".producto-agregar");
@@ -176,7 +176,11 @@ function actualizarBotonesParaAgregarProductosAlCarrito() {
 
 let PRODUCTOS_EN_CARRITO;
 
+
+
 const PRODUCTOS_EN_CARRITO_LS = JSON.parse(localStorage.getItem("productos-agregados-al-carrito"));
+
+// Buscar si hay algo almacenado en el LS y actualizar el numero en el index segun lo que hay almacenado.
 if(PRODUCTOS_EN_CARRITO_LS){
   PRODUCTOS_EN_CARRITO = PRODUCTOS_EN_CARRITO_LS;
   actualizarCantidadDeProductosEnCarrito();
@@ -184,6 +188,8 @@ if(PRODUCTOS_EN_CARRITO_LS){
   PRODUCTOS_EN_CARRITO = [];
 };
 
+
+// Funcion para agregar productos al carrito
 
 function agregarProductoAlCarrito(e) {
 
@@ -205,6 +211,8 @@ function agregarProductoAlCarrito(e) {
   localStorage.setItem("productos-agregados-al-carrito", JSON.stringify(PRODUCTOS_EN_CARRITO));
 
 }
+
+// Funcion que actualiza el numero que muestra la cantidad de productos agregados al carrito y no reinicia cuando volvemos del carrito al index.
 
 function actualizarCantidadDeProductosEnCarrito() {
   let nuevaCANTIDAD_DE_PRODUCTOS_EN_CARRITO = PRODUCTOS_EN_CARRITO.reduce((acc, producto) => acc + producto.cantidad, 0);
