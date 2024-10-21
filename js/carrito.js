@@ -70,6 +70,14 @@ function actualizarBotonesEliminar() {
 
 // funcion que elimina el item del carrito cuando se hace click en el icono
 function eliminarDelCarrito(e){
-    let ID_BOTON = e.currentTarget.id
-    console.log (ID_BOTON)
-}
+    const ID_BOTON = e.currentTarget.id
+/* 
+    const PRODUCTO_ELIMINADO = PRODUCTOS_EN_CARRITO.find(producto => producto.id === ID_BOTON); // no se necesita, se puede borrar*/
+   // hasta aca funciona ok. 
+
+   const INDEX = PRODUCTOS_EN_CARRITO.findIndex(producto => producto.id === ID_BOTON);
+
+   console.log(PRODUCTOS_EN_CARRITO);
+   PRODUCTOS_EN_CARRITO.splice(INDEX, 1); 
+console.log(PRODUCTOS_EN_CARRITO);
+};
