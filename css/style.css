@@ -494,7 +494,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--clr-main-grey);
+  background-color: var(--clr-main-white);
   color: var(--clr-second-blue);
   padding: .5rem;
   padding-right: 1.5rem;

@@ -106,7 +106,7 @@ const PRODUCTOS_ARRAY = [
 const CONTENEDOR_GALERIA_DE_PRODUCTOS = document.querySelector("#contenedor-galeria-de-productos");
 const BOTONES_DE_FILTRADO_DE_CATEGORIAS = document.querySelectorAll(".boton-categoria");
 const TITULO_PRINCIPAL = document.querySelector("#titulo-principal");
-let botonesAgregar = document.querySelectorAll(".producto-agregar");
+let botonesParaAgregarProductosAlCarrito = document.querySelectorAll(".producto-agregar");
 
 
 // Funcion para mostrar los productos en el html
@@ -159,6 +159,11 @@ BOTONES_DE_FILTRADO_DE_CATEGORIAS.forEach(boton => {
   
   })
 });
+
+
+
+// Funcion para agregar productos al carrito
+
 
 
 
