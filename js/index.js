@@ -174,7 +174,16 @@ function actualizarBotonesParaAgregarProductosAlCarrito() {
   } )
 };
 
-const PRODUCTOS_EN_CARRITO = [];
+let PRODUCTOS_EN_CARRITO;
+
+const PRODUCTOS_EN_CARRITO_LS = JSON.parse(localStorage.getItem("productos-agregados-al-carrito"));
+if(PRODUCTOS_EN_CARRITO_LS){
+  PRODUCTOS_EN_CARRITO = PRODUCTOS_EN_CARRITO_LS;
+  actualizarCantidadDeProductosEnCarrito();
+} else {
+  PRODUCTOS_EN_CARRITO = [];
+};
+
 
 function agregarProductoAlCarrito(e) {
 
