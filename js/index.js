@@ -193,6 +193,7 @@ function agregarProductoAlCarrito(e) {
   }
   actualizarCantidadDeProductosEnCarrito()
   
+  localStorage.setItem("productos-agregados-al-carrito", JSON.stringify(PRODUCTOS_EN_CARRITO));
 
 }
 
@@ -200,6 +201,7 @@ function actualizarCantidadDeProductosEnCarrito() {
   let nuevaCANTIDAD_DE_PRODUCTOS_EN_CARRITO = PRODUCTOS_EN_CARRITO.reduce((acc, producto) => acc + producto.cantidad, 0);
   CANTIDAD_DE_PRODUCTOS_EN_CARRITO.innerText = nuevaCANTIDAD_DE_PRODUCTOS_EN_CARRITO;
 }
+
 
 
 /* PRIMER PREENTREGA - CORREGIDA */
