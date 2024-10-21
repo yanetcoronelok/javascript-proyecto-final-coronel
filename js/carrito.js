@@ -3,7 +3,11 @@ const CONTENEDOR_CARRITO_VACIO = document.querySelector("#carrito-vacio");
 const CONTENEDOR_CARRITO_PRODUCTOS = document.querySelector("#carrito-productos");
 const CONTENEDOR_CARRITO_ACCIONES = document.querySelector("#carrito-acciones");
 const CONTENEDOR_CARRITO_COMPRADO = document.querySelector("#carrito-comprado");
-let botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar")
+let botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
+const botonVaciar = document.querySelector("#carrito-acciones-vaciar");
+const CONTENEDOR_TOTAL = document.querySelector("#total");
+const BOTON_COMPRAR = document.querySelector("#carrito-acciones-comprar")
+
 
 // funcion que muestra los productos agregados en el carrito.
 function cargarProductosCarrito(){
@@ -53,6 +57,7 @@ function cargarProductosCarrito(){
     }
 
     actualizarBotonesEliminar();
+    actualizarTotal()
 }
 
 cargarProductosCarrito();
@@ -74,6 +79,7 @@ function eliminarDelCarrito(e){
 
     PRODUCTOS_EN_CARRITO.splice(INDEX, 1); 
     cargarProductosCarrito();
+    actualizarTotal();
 
 
     localStorage.setItem("productos-agregados-al-carrito", JSON.stringify(PRODUCTOS_EN_CARRITO));
@@ -81,3 +87,44 @@ function eliminarDelCarrito(e){
 
 
 // funcion para vaciar todo el carrito
+
+botonVaciar.addEventListener("click", vaciarCarrito);
+
+function vaciarCarrito() {
+
+    PRODUCTOS_EN_CARRITO.length = 0;
+
+    localStorage.setItem("productos-agregados-al-carrito", JSON.stringify(PRODUCTOS_EN_CARRITO));
+
+    cargarProductosCarrito();
+}
+
+// Funcion para actualizar el total
+
+
+function actualizarTotal() {
+
+    const TOTAL_CALCULADO = PRODUCTOS_EN_CARRITO.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
+     total.innerText = `$${TOTAL_CALCULADO}`;
+
+  /*    PRODUCTOS_EN_CARRITO.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
+    total.innerText = `$${TOTAL_CALCULADO}`; */
+}
+
+
+
+// Funcion para el boton comprar
+
+BOTON_COMPRAR.addEventListener("click", comprarCarrito);
+
+
+function comprarCarrito() {
+    PRODUCTOS_EN_CARRITO.length = 0;
+    localStorage.setItem("productos-agregados-al-carrito", JSON.stringify(PRODUCTOS_EN_CARRITO));
+    
+    CONTENEDOR_CARRITO_VACIO.classList.add("disabled");
+    CONTENEDOR_CARRITO_PRODUCTOS.classList.add("disabled");
+    CONTENEDOR_CARRITO_ACCIONES.classList.add("disabled");
+    CONTENEDOR_CARRITO_COMPRADO.classList.remove("disabled");
+};
+
