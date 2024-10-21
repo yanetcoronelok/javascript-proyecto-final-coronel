@@ -160,33 +160,6 @@ BOTONES_DE_FILTRADO_DE_CATEGORIAS.forEach(boton => {
   })
 });
 
-/* 
-BOTONES_CATEGORIAS.forEach(boton => {
-  boton.addEventListener("click", (e) => {
-
-    BOTONES_CATEGORIAS.forEach(boton => boton.classList.remove("active"));
-    e.currentTarget.classList.add("active");
-
-    if (e.currentTarget.id != "todos") {
-      debugger
-      const CATEGORIA = PRODUCTOS_ARRAY.find(producto => producto.categoria.id === e.currentTarget.id);
-
-      TITULO_PRINCIPAL.innerText = CATEGORIA.categoria.nombre;
-
-      const PRODUCTOS_BOTON = PRODUCTOS.find(producto => producto.categoria.id === e.currentTarget.id);
-            mostrarProductos(PRODUCTOS_BOTON);
-    } else {
-      TITULO_PRINCIPAL.innerText = "Todas las fotografias";
-      mostrarProductos(PRODUCTOS_ARRAY);
-    }
-  
-  })
-}); */
-
-
-
-
-
 
 
 /* PRIMER PREENTREGA - CORREGIDA */
