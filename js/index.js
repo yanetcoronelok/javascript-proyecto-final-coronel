@@ -106,6 +106,7 @@ const PRODUCTOS_ARRAY = [
 const CONTENEDOR_GALERIA_DE_PRODUCTOS = document.querySelector("#contenedor-galeria-de-productos");
 const BOTONES_DE_FILTRADO_DE_CATEGORIAS = document.querySelectorAll(".boton-categoria");
 const TITULO_PRINCIPAL = document.querySelector("#titulo-principal");
+const CANTIDAD_DE_PRODUCTOS_EN_CARRITO = document.querySelector("#numerito");
 let botonesParaAgregarProductosAlCarrito = document.querySelectorAll(".producto-agregar");
 
 
@@ -179,10 +180,26 @@ function agregarProductoAlCarrito(e) {
 
   const ID_BOTON = e.currentTarget.id;
   const PRODUCTO_AGREGADO = PRODUCTOS_ARRAY.find(producto => producto.id === ID_BOTON);
-  console.log(PRODUCTO_AGREGADO)
+
+  if(PRODUCTOS_EN_CARRITO.some((producto => producto.id === ID_BOTON))){
+
+    const INDEX = PRODUCTOS_EN_CARRITO.findIndex(producto => producto.id === ID_BOTON)
+
+    PRODUCTOS_EN_CARRITO[INDEX].cantidad++;
+  } else {
+    PRODUCTO_AGREGADO.cantidad = 1;
+    PRODUCTOS_EN_CARRITO.push(PRODUCTO_AGREGADO);
+ 
+  }
+  actualizarCantidadDeProductosEnCarrito()
+  
 
 }
 
+function actualizarCantidadDeProductosEnCarrito() {
+  let nuevaCANTIDAD_DE_PRODUCTOS_EN_CARRITO = PRODUCTOS_EN_CARRITO.reduce((acc, producto) => acc + producto.cantidad, 0);
+  CANTIDAD_DE_PRODUCTOS_EN_CARRITO.innerText = nuevaCANTIDAD_DE_PRODUCTOS_EN_CARRITO;
+}
 
 
 /* PRIMER PREENTREGA - CORREGIDA */
