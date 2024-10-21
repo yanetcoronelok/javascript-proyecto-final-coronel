@@ -132,6 +132,7 @@ function mostrarProductos(productos = PRODUCTOS_ARRAY){
     `;
     PRODUCTOS_SECTION.appendChild(CARD_DIV);
   });
+  actualizarBotonesParaAgregarProductosAlCarrito()
 }
 mostrarProductos();
 
@@ -164,6 +165,23 @@ BOTONES_DE_FILTRADO_DE_CATEGORIAS.forEach(boton => {
 
 // Funcion para agregar productos al carrito
 
+function actualizarBotonesParaAgregarProductosAlCarrito() {
+  botonesParaAgregarProductosAlCarrito = document.querySelectorAll(".producto-agregar");
+
+  botonesParaAgregarProductosAlCarrito.forEach(boton => {
+    boton.addEventListener("click", agregarProductoAlCarrito);
+  } )
+};
+
+const PRODUCTOS_EN_CARRITO = [];
+
+function agregarProductoAlCarrito(e) {
+
+  const ID_BOTON = e.currentTarget.id;
+  const PRODUCTO_AGREGADO = PRODUCTOS_ARRAY.find(producto => producto.id === ID_BOTON);
+  console.log(PRODUCTO_AGREGADO)
+
+}
 
 
 
