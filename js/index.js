@@ -177,12 +177,12 @@ function actualizarBotonesParaAgregarProductosAlCarrito() {
 let PRODUCTOS_EN_CARRITO;
 
 
+let productosEnCarritoLs = localStorage.getItem("productos-agregados-al-carrito");
 
-const PRODUCTOS_EN_CARRITO_LS = JSON.parse(localStorage.getItem("productos-agregados-al-carrito"));
 
 // Buscar si hay algo almacenado en el LS y actualizar el numero en el index segun lo que hay almacenado.
-if(PRODUCTOS_EN_CARRITO_LS){
-  PRODUCTOS_EN_CARRITO = PRODUCTOS_EN_CARRITO_LS;
+if(productosEnCarritoLs){
+  PRODUCTOS_EN_CARRITO = JSON.parse(productosEnCarritoLs);
   actualizarCantidadDeProductosEnCarrito();
 } else {
   PRODUCTOS_EN_CARRITO = [];

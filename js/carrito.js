@@ -1,5 +1,4 @@
-const PRODUCTOS_EN_CARRITO = JSON.parse(localStorage.getItem("productos-agregados-al-carrito"));
-
+const PRODUCTOS_EN_CARRITO = JSON.parse(localStorage.getItem("productos-agregados-al-carrito")) || [];
 const CONTENEDOR_CARRITO_VACIO = document.querySelector("#carrito-vacio");
 const CONTENEDOR_CARRITO_PRODUCTOS = document.querySelector("#carrito-productos");
 const CONTENEDOR_CARRITO_ACCIONES = document.querySelector("#carrito-acciones");
@@ -9,7 +8,7 @@ let botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar")
 // funcion que muestra los productos agregados en el carrito.
 function cargarProductosCarrito(){
 
-    if (PRODUCTOS_EN_CARRITO) {
+    if (PRODUCTOS_EN_CARRITO && PRODUCTOS_EN_CARRITO.length > 0 ) {
 
         CONTENEDOR_CARRITO_VACIO.classList.add("disabled");
         CONTENEDOR_CARRITO_PRODUCTOS.classList.remove("disabled");
@@ -71,13 +70,14 @@ function actualizarBotonesEliminar() {
 // funcion que elimina el item del carrito cuando se hace click en el icono
 function eliminarDelCarrito(e){
     const ID_BOTON = e.currentTarget.id
-/* 
-    const PRODUCTO_ELIMINADO = PRODUCTOS_EN_CARRITO.find(producto => producto.id === ID_BOTON); // no se necesita, se puede borrar*/
-   // hasta aca funciona ok. 
+    const INDEX = PRODUCTOS_EN_CARRITO.findIndex(producto => producto.id === ID_BOTON);
 
-   const INDEX = PRODUCTOS_EN_CARRITO.findIndex(producto => producto.id === ID_BOTON);
+    PRODUCTOS_EN_CARRITO.splice(INDEX, 1); 
+    cargarProductosCarrito();
 
-   console.log(PRODUCTOS_EN_CARRITO);
-   PRODUCTOS_EN_CARRITO.splice(INDEX, 1); 
-console.log(PRODUCTOS_EN_CARRITO);
+
+    localStorage.setItem("productos-agregados-al-carrito", JSON.stringify(PRODUCTOS_EN_CARRITO));
 };
+
+
+// funcion para vaciar todo el carrito
