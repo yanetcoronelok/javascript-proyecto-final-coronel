@@ -107,8 +107,7 @@ function actualizarTotal() {
     const TOTAL_CALCULADO = PRODUCTOS_EN_CARRITO.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
      total.innerText = `$${TOTAL_CALCULADO}`;
 
-  /*    PRODUCTOS_EN_CARRITO.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
-    total.innerText = `$${TOTAL_CALCULADO}`; */
+
 }
 
 
