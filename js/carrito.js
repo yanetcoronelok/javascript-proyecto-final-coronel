@@ -62,6 +62,12 @@ function cargarProductosCarrito(){
 
 cargarProductosCarrito();
 
+
+
+
+
+
+
 // Funcion que actualiza el boton de eliminar cada vez que se carga un producto al carrito
 function actualizarBotonesEliminar() {
 
