@@ -181,35 +181,26 @@ let productosEnCarritoLs = localStorage.getItem("productos-agregados-al-carrito"
 
 
 // Buscar si hay algo almacenado en el LS y actualizar el numero en el index segun lo que hay almacenado.
-if(productosEnCarritoLs){
-  PRODUCTOS_EN_CARRITO = JSON.parse(productosEnCarritoLs);
-  actualizarCantidadDeProductosEnCarrito();
-} else {
-  PRODUCTOS_EN_CARRITO = [];
-};
+PRODUCTOS_EN_CARRITO = localStorage.getItem("productos-agregados-al-carrito")
+    ? JSON.parse(localStorage.getItem("productos-agregados-al-carrito"))
+    : [];
+actualizarCantidadDeProductosEnCarrito();
 
 
 // Funcion para agregar productos al carrito
-
 function agregarProductoAlCarrito(e) {
-
   const ID_BOTON = e.currentTarget.id;
   const PRODUCTO_AGREGADO = PRODUCTOS_ARRAY.find(producto => producto.id === ID_BOTON);
 
-  if(PRODUCTOS_EN_CARRITO.some((producto => producto.id === ID_BOTON))){
+  const index = PRODUCTOS_EN_CARRITO.findIndex(producto => producto.id === ID_BOTON);
 
-    const INDEX = PRODUCTOS_EN_CARRITO.findIndex(producto => producto.id === ID_BOTON)
+  // Utilizando el operador ternario
+  index !== -1
+    ? PRODUCTOS_EN_CARRITO[index].cantidad++
+    : PRODUCTOS_EN_CARRITO.push({ ...PRODUCTO_AGREGADO, cantidad: 1 });
 
-    PRODUCTOS_EN_CARRITO[INDEX].cantidad++;
-  } else {
-    PRODUCTO_AGREGADO.cantidad = 1;
-    PRODUCTOS_EN_CARRITO.push(PRODUCTO_AGREGADO);
- 
-  }
-  actualizarCantidadDeProductosEnCarrito()
-  
+  actualizarCantidadDeProductosEnCarrito();
   localStorage.setItem("productos-agregados-al-carrito", JSON.stringify(PRODUCTOS_EN_CARRITO));
-
 }
 
 // Funcion que actualiza el numero que muestra la cantidad de productos agregados al carrito y no reinicia cuando volvemos del carrito al index.
