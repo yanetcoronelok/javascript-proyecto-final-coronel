@@ -1,114 +1,7 @@
-// Array de productos
-const PRODUCTOS_ARRAY = [
-  {
-    id: "fotoUrbana-01",
-    titulo: "Foto Urbana 01",
-    imagen: "../assets/photographies/urbanas/_MG_2603.jpg",
-    categoria: {
-      nombre: "Urbana",
-      id: "urbana"
-    },
-    precio: 10
-  },
-  {
-    id: "fotoUrbana-02",
-    titulo: "Foto Urbana 02",
-    imagen: "../assets/photographies/urbanas/_MG_2722.jpg",
-    categoria: {
-      nombre: "Urbana",
-      id: "urbana"
-    },
-    precio: 10
-  },
-  {
-    id: "fotoPaisaje-01",
-    titulo: "Foto Paisaje 02",
-    imagen: "../assets/photographies/paisajes/IMG_9885.jpg",
-    categoria: {
-      nombre: "Paisaje",
-      id: "paisaje"
-    },
-    precio: 10
-  },
-  {
-    id: "fotoPaisaje-02",
-    titulo: "Foto Paisaje 02",
-    imagen: "../assets/photographies/paisajes/IMG_9920.jpg",
-    categoria: {
-      nombre: "Paisaje",
-      id: "paisaje"
-    },
-    precio: 10
-  },
-  {
-    id: "fotoNaturaleza-01",
-    titulo: "Foto Naturaleza 01",
-    imagen: "../assets/photographies/naturaleza/20230324015124__MG_1725.jpg",
-    categoria: {
-      nombre: "Naturaleza",
-      id: "naturaleza"
-    },
-    precio: 10
-  },
-  {
-    id: "fotoNaturaleza-02",
-    titulo: "Foto Naturaleza 02",
-    imagen: "../assets/photographies/naturaleza/20230324042444__MG_1998.jpg",
-    categoria: {
-      nombre: "Naturaleza",
-      id: "naturaleza"
-    },
-    precio: 10
-  },
-  {
-    id: "fotoRetrato-01",
-    titulo: "Foto Retrato 01",
-    imagen: "../assets/photographies/retrato/_MG_0517.jpg",
-    categoria: {
-      nombre: "Retrato",
-      id: "retrato"
-    },
-    precio: 10
-  },
-  {
-    id: "fotoRetrato-02",
-    titulo: "Foto Retrato 02",
-    imagen: "../assets/photographies/retrato/_MG_1212.jpg",
-    categoria: {
-      nombre: "Retrato",
-      id: "retrato"
-    },
-    precio: 10
-  },
-  {
-    id: "fotoMascotas-01",
-    titulo: "Foto Mascota 01",
-    imagen: "../assets/photographies/mascotas/_MG_2313.jpg",
-    categoria: {
-      nombre: "Mascota",
-      id: "mascota"
-    },
-    precio: 10
-  },
-  {
-    id: "fotoMascotas-02",
-    titulo: "Foto Mascota 02",
-    imagen: "../assets/photographies/mascotas/_MG_2376.jpg",
-    categoria: {
-      nombre: "Mascota",
-      id: "mascota"
-    },
-    precio: 10
-  }
-];
-
-
-const CONTENEDOR_GALERIA_DE_PRODUCTOS = document.querySelector("#contenedor-galeria-de-productos");
 const BOTONES_DE_FILTRADO_DE_CATEGORIAS = document.querySelectorAll(".boton-categoria");
 const TITULO_PRINCIPAL = document.querySelector("#titulo-principal");
 const CANTIDAD_DE_PRODUCTOS_EN_CARRITO = document.querySelector("#numerito");
 let botonesParaAgregarProductosAlCarrito = document.querySelectorAll(".producto-agregar");
-
 
 // Funcion para mostrar los productos en el html
 
@@ -135,8 +28,23 @@ function mostrarProductos(productos = PRODUCTOS_ARRAY){
   });
   actualizarBotonesParaAgregarProductosAlCarrito()
 }
-mostrarProductos();
 
+// Array de productos
+let PRODUCTOS_ARRAY = [];
+
+function inicializarProductos() {
+  fetch('productos.json') // Ruta a tu archivo JSON
+    .then(response => response.json())
+    .then(data => {
+      PRODUCTOS_ARRAY = data; // Asignar los productos cargados a PRODUCTOS_ARRAY
+      mostrarProductos(PRODUCTOS_ARRAY); // Llamar a la funcion para mostrar los productos
+    })
+    .catch(error => {
+      console.error('Error al cargar los productos:', error);
+    });
+}
+
+inicializarProductos();
 
 // Filtro segun categorias
 
