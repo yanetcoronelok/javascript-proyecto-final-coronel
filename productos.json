@@ -42,7 +42,7 @@
     {
       "id": "fotoNaturaleza-01",
       "titulo": "Foto Naturaleza 01",
-      "imagen": "assets/photographies/img_1725.jpg",
+      "imagen": "assets/photographies/naturaleza/img_1725.jpg",
       "categoria": {
         "nombre": "Naturaleza",
         "id": "naturaleza"
@@ -52,7 +52,7 @@
     {
       "id": "fotoNaturaleza-02",
       "titulo": "Foto Naturaleza 02",
-      "imagen": "assets/photographies/img_1998.jpg",
+      "imagen": "assets/photographies/naturaleza/img_1998.jpg",
       "categoria": {
         "nombre": "Naturaleza",
         "id": "naturaleza"
