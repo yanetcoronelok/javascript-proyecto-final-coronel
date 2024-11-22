@@ -21,8 +21,8 @@
     },
     {
       "id": "fotoPaisaje-01",
-      "titulo": "Foto Paisaje 02",
-      "imagen": "../assets/photographies/paisajes/IMG_9885.jpg",
+      "titulo": "Foto Paisaje 01",
+      "imagen": "assets/photographies/paisajes/IMG_9885.jpg",
       "categoria": {
         "nombre": "Paisaje",
         "id": "paisaje"
@@ -32,7 +32,7 @@
     {
       "id": "fotoPaisaje-02",
       "titulo": "Foto Paisaje 02",
-      "imagen": "../assets/photographies/paisajes/IMG_9920.jpg",
+      "imagen": "./assets/photographies/paisajes/IMG_9920.jpg",
       "categoria": {
         "nombre": "Paisaje",
         "id": "paisaje"
@@ -62,7 +62,7 @@
     {
       "id": "fotoRetrato-01",
       "titulo": "Foto Retrato 01",
-      "imagen": "../assets/photographies/retrato/_MG_0517.jpg",
+      "imagen": "assets/photographies/retrato/_MG_0517.jpg",
       "categoria": {
         "nombre": "Retrato",
         "id": "retrato"
