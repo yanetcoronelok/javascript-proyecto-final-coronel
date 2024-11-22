@@ -2,7 +2,7 @@
     {
       "id": "fotoUrbana-01",
       "titulo": "Foto Urbana 01",
-      "imagen": "assets/photographies/urbanas/_MG_2603.jpg",
+      "imagen": "assets/photographies/urbanas/img_2603.jpg",
       "categoria": {
         "nombre": "Urbana",
         "id": "urbana"
