@@ -12,7 +12,7 @@
     {
       "id": "fotoUrbana-02",
       "titulo": "Foto Urbana 02",
-      "imagen": "assets/photographies/urbanas/_MG_2722.jpg",
+      "imagen": "assets/photographies/urbanas/img_2722.jpg",
       "categoria": {
         "nombre": "Urbana",
         "id": "urbana"
@@ -42,7 +42,7 @@
     {
       "id": "fotoNaturaleza-01",
       "titulo": "Foto Naturaleza 01",
-      "imagen": "assets/photographies/naturaleza/20230324015124__MG_1725.jpg",
+      "imagen": "assets/photographies/img_1725.jpg",
       "categoria": {
         "nombre": "Naturaleza",
         "id": "naturaleza"
@@ -52,7 +52,7 @@
     {
       "id": "fotoNaturaleza-02",
       "titulo": "Foto Naturaleza 02",
-      "imagen": "assets/photographies/naturaleza/20230324042444__MG_1998.jpg",
+      "imagen": "assets/photographies/img_1998.jpg",
       "categoria": {
         "nombre": "Naturaleza",
         "id": "naturaleza"
@@ -62,7 +62,7 @@
     {
       "id": "fotoRetrato-01",
       "titulo": "Foto Retrato 01",
-      "imagen": "assets/photographies/retrato/_MG_0517.jpg",
+      "imagen": "assets/photographies/retrato/img_0517.jpg",
       "categoria": {
         "nombre": "Retrato",
         "id": "retrato"
@@ -72,7 +72,7 @@
     {
       "id": "fotoRetrato-02",
       "titulo": "Foto Retrato 02",
-      "imagen": "assets/photographies/retrato/_MG_1212.jpg",
+      "imagen": "assets/photographies/retrato/img_1212.jpg",
       "categoria": {
         "nombre": "Retrato",
         "id": "retrato"
@@ -82,7 +82,7 @@
     {
       "id": "fotoMascotas-01",
       "titulo": "Foto Mascota 01",
-      "imagen": "assets/photographies/mascotas/_MG_2313.jpg",
+      "imagen": "assets/photographies/mascotas/mg_2313.jpg",
       "categoria": {
         "nombre": "Mascota",
         "id": "mascota"
@@ -92,7 +92,7 @@
     {
       "id": "fotoMascotas-02",
       "titulo": "Foto Mascota 02",
-      "imagen": "assets/photographies/mascotas/_MG_2376.jpg",
+      "imagen": "assets/photographies/mascotas/mg_2376.jpg",
       "categoria": {
         "nombre": "Mascota",
         "id": "mascota"
