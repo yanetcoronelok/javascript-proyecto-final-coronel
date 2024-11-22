@@ -33,7 +33,7 @@ function mostrarProductos(productos = PRODUCTOS_ARRAY){
 let PRODUCTOS_ARRAY = [];
 
 function inicializarProductos() {
-  fetch('productos.json') // Ruta a tu archivo JSON
+  fetch('productos.json') // Ruta al archivo JSON
     .then(response => response.json())
     .then(data => {
       PRODUCTOS_ARRAY = data; // Asignar los productos cargados a PRODUCTOS_ARRAY
